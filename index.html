@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BYND: The Original Meme Stock Tribute</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Light background */
+            color: #1f2937; /* Dark text color (gray-800) */
+        }
+        .text-green-accent { color: #4ade80; } /* Tailwind green-400 equivalent */
+        .bg-green-accent { background-color: #4ade80; }
+        .border-green-accent { border-color: #4ade80; }
+
+        /* Custom style for the logo height */
+        .header-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Hero Section with Image Background */
+        .hero-section-image {
+            background-image: url('https://images.unsplash.com/photo-1561016444-14f747499547?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Custom CSS for DEXscreener Embed to ensure fixed height (400px) */
+        #dexscreener-embed-wrapper {
+            height: 400px; /* Fixed height to match TradingView */
+            position: relative;
+            width: 100%;
+            overflow: hidden; 
+        }
+        #dexscreener-embed-wrapper iframe{
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar - White background and dark text -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="header-logo" src="https://ginsbergs.com/wp-content/uploads/2021/08/Beyond-Meat-Logo.png" alt="Beyond Meat Logo Placeholder">
+                    <span class="ml-3 text-2xl font-black tracking-tight text-gray-900">$BYND</span>
+                </div>
+                <!-- Navigation Links -->
+                <div class="flex items-center space-x-4">
+                    <a href="#about" class="text-gray-700 hover:text-green-accent transition duration-300 hidden md:block">About</a>
+                    <a href="#story" class="text-gray-700 hover:text-green-accent transition duration-300 hidden md:block">The Saga</a>
+                    <a href="#tokenomics" class="text-gray-700 hover:text-green-accent transition duration-300 hidden md:block">Token Info</a>
+                    <!-- Nav bar Charts link updated to point to the internal Charts section -->
+                    <a href="#charts" class="text-gray-700 hover:text-green-accent transition duration-300 hidden md:block">Charts</a>
+                    <a href="https://x.com/i/communities/19803323706425739" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-300 shadow-lg">Join the Movement</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Image Background and Overlay (Kept dark for text readability) -->
+    <header class="hero-section-image h-[50vh] md:h-[70vh] flex items-center justify-center text-center relative overflow-hidden">
+        <!-- Overlay for readability over image (Opacity 40) -->
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="z-10 p-6 md:p-12">
+            <!-- Text colors remain light for contrast on the dark overlay -->
+            <h1 class="text-5xl md:text-8xl font-black mb-4 tracking-tighter text-white uppercase drop-shadow-lg">
+                The <span class="text-green-accent">Beyond</span> Squeeze
+            </h1>
+            <p class="text-xl md:text-3xl font-light text-gray-200 drop-shadow-md max-w-2xl mx-auto">
+                $BYND on Solana: Turning Volatility into Viral Victory.
+            </p>
+            <a href="https://x.com/i/communities/1980332723706425739" target="_blank" class="mt-8 inline-block px-8 py-3 text-lg font-bold rounded-full bg-black text-green-accent hover:bg-gray-800 transition duration-300 transform hover:scale-105 shadow-xl">
+                Get Your Steak (of the Coin)
+            </a>
+        </div>
+    </header>
+
+    <!-- Token Information Card (Light Mode Adapted) -->
+    <section id="tokenomics" class="py-16 md:py-24 bg-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12 text-gray-900">Token Info</h2>
+
+            <div class="bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-200">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-8">
+                    <!-- Ticker & Chain -->
+                    <div class="text-center md:text-left">
+                        <p class="text-4xl font-black text-green-accent">$BYND</p>
+                        <p class="text-lg text-gray-600">Solana Meme</p>
+                    </div>
+
+                    <!-- Token Address (Adapted for light mode) -->
+                    <div class="flex flex-col items-center md:items-start flex-grow">
+                        <p class="text-sm font-medium text-gray-700 mb-1">Contract Address:</p>
+                        <div class="flex items-center w-full max-w-lg bg-gray-200 p-3 rounded-xl border border-gray-300">
+                            <!-- Contract address has been UPDATED -->
+                            <span id="token-address" class="truncate text-gray-800 font-mono text-sm flex-grow select-all">5BCTqesC7EKWdGzepDv4zHriWSV1mnPitLMLGtVBpump</span>
+                            <button id="copy-button" class="ml-4 flex-shrink-0 p-2 rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-200 focus:outline-none" title="Copy Address">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                                    <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3h-2a3 3 0 01-3-3z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <p id="copy-message" class="text-xs mt-2 text-green-accent opacity-0 transition-opacity duration-300">Copied!</p>
+                    </div>
+
+                    <!-- Links -->
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/i/communities/1980332723706425739" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 hover:bg-green-accent/20 transition duration-300" title="X Community">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H397.4L270.6 307.8 143.4 464H72.8L220.6 295.4 49 48h92.2L249.4 212.2 389.2 48zM364.4 421.8h30.8L121.1 92.2H90.3L364.4 421.8z"/></svg>
+                        </a>
+                        <!-- Charts link updated to DEXscreener URL and opens in new tab -->
+                        <a href="https://dexscreener.com/solana/5BCTqesC7EKWdGzepDv4zHriWSV1mnPitLMLGtVBpump" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 hover:bg-green-accent/20 transition duration-300" title="Charts">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16.2 7.7a6 6 0 0 1-8.4 0"></path><path d="M18 10a8 8 0 0 1-12 0"></path><path d="M9.8 14.3a2.5 2.5 0 0 0 4.4 0"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts Section (NOW WITH LIVE EMBEDS) -->
+    <section id="charts" class="py-16 md:py-24 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12 text-gray-900">Charts: Stock vs Meme</h2>
+            <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-10">Compare the historical trading saga of the $BYND stock to the real-time action of the $BYND memecoin on Solana.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 1. $BYND (NASDAQ) Stock Chart (TradingView Embed) -->
+                <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-300">
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">1. $BYND (NASDAQ) Stock Chart</h3>
+                    
+                    <div class="tradingview-widget-container rounded-lg overflow-hidden">
+                        <div id="tradingview_b7f6c" style="width: 100%; height: 400px;"></div>
+                        <div class="tradingview-widget-copyright text-xs text-center p-1 bg-gray-200">
+                            <a href="https://www.tradingview.com/symbols/NASDAQ-BYND/" rel="noopener" target="_blank">
+                                <span class="text-blue-600 font-medium">BYND Price</span> <!-- Translated -->
+                            </a> by TradingView
+                        </div>
+                        <!-- TradingView Script -->
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                        new TradingView.widget(
+                            {
+                                "symbol": "NASDAQ:BYND",
+                                "interval": "D",
+                                "timezone": "Europe/Budapest", // Set the appropriate timezone! (Translated comment)
+                                "theme": "light", // Can be "light" or "dark" (Translated comment)
+                                "style": "1", // Different styles from 1 to 9 (Translated comment)
+                                "locale": "en", // English language (Updated from hu_HU)
+                                "toolbar_bg": "#f1f3f6",
+                                "enable_publishing": false,
+                                "allow_symbol_change": true,
+                                "container_id": "tradingview_b7f6c",
+                                "width": "100%", // e.g. "600", or "100%" for responsive sizing (Translated comment)
+                                "height": "400" // e.g. "400" pixels (Translated comment)
+                            }
+                        );
+                        </script>
+                    </div>
+                </div>
+
+                <!-- 2. $BYND Memecoin DEX Screener Chart (DEX Screener Embed) -->
+                <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-300">
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">2. $BYND (Solana) DEX Screener</h3>
+                    
+                    <!-- Updated wrapper to enforce 400px height for equal sizing -->
+                    <div id="dexscreener-embed-wrapper" class="rounded-xl overflow-hidden">
+                        <!-- Contract address is correct in the iframe source -->
+                        <iframe src="https://dexscreener.com/solana/5BCTqesC7EKWdGzepDv4zHriWSV1mnPitLMLGtVBpump?embed=1&loadChartSettings=0&trades=0&info=0&chartLeftToolbar=0&chartTheme=light&theme=light&chartStyle=0&chartType=usd&interval=15"></iframe>
+                    </div>
+                    <p class="mt-3 text-sm text-gray-600">Real-time price feed for the $BYND memecoin on the Solana blockchain.</p> <!-- Translated -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections (All content translated to English) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-white">
+        
+        <!-- Section 1: The Beyond Meat Context -->
+        <section id="about" class="mb-20 md:mb-32">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-8 text-gray-900"><span class="text-green-accent">Beyond</span> Fundamentals: The OG Meme Stock</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Beyond Meat Inc. (NASDAQ: BYND) is known globally for pioneering plant-based meat substitutes. Its spectacular IPO and subsequent stock volatility made it a household name—not just in groceries, but on Wall Street. Despite being a major, innovative company, the stock frequently became the target of intense short selling and large-scale retail trading battles.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Like other meme stocks, BYND’s price action was often driven by market sentiment, social media hype, and high short interest, rather than traditional financial fundamentals. This history of high-stakes volatility and community-driven speculation is the perfect foundation for a tribute coin on the Solana blockchain.
+                    </p>
+                </div>
+                <div class="hidden md:block">
+                    <!-- IMAGE REPLACED WITH USER-PROVIDED URL -->
+                    <img src="https://azat.tv/en/wp-content/uploads/2025/10/Beyond-Meat.jpg" alt="Beyond Meat product and logo image" class="w-full rounded-xl shadow-xl border-4 border-green-accent/50">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The GME/GameStop Parallel (UPDATED CONTENT) -->
+        <section id="story" class="mb-20 md:mb-32">
+            <div class="grid md:grid-cols-2 gap-12 items-center flex-row-reverse">
+                <div class="md:col-start-2">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-8 text-gray-900"><span class="text-green-accent">The GME Parallel:</span> The Squeeze Narrative</h2>
+                    <p class="text-700 leading-relaxed mb-4">
+                        You can't discuss the power of retail traders without mentioning GameStop ($GME). Its stock orchestrated one of the largest short squeezes in market history, proving that a unified, dedicated community could drive the price to incredible, parabolic heights—a true market rebellion. The $GME phenomenon didn't stop at the stock exchange; it successfully spawned highly volatile and community-driven memecoins that captured the same electric, rebellious energy, achieving massive gains.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Now, the $BYND stock finds itself in a strikingly similar position: a high short interest, low valuation, and intense retail scrutiny. This parallel is why the $BYND memecoin on Solana is positioned for explosive growth. It’s not just a tribute; it’s a strategic play. We are leveraging the familiar ticker and the deep history of short-seller battles to rally the next digital community.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        If the collective power of the internet could achieve the GME stock squeeze and propel related memecoins to success, the $BYND memecoin holds **enormous potential** to be the next major parabolic run. Get ready for the squeeze, DeFi style.
+                    </p>
+                </div>
+                <div class="md:col-start-1 md:row-start-1">
+                    <!-- Card text color updated for light background -->
+                    <div class="p-6 rounded-2xl bg-green-accent/10 border border-green-accent/30 text-gray-900 shadow-xl">
+                        <p class="text-xl font-bold mb-3">The Squeeze Equation</p>
+                        <ul class="space-y-2 list-none p-0 text-gray-700">
+                            <li class="flex items-center"><span class="text-green-accent mr-3">•</span> **GME Stock:** High short interest $\rightarrow$ Massive Squeeze.</li>
+                            <li class="flex items-center"><span class="text-green-accent mr-3">•</span> **GME Memecoin:** Followed stock success $\rightarrow$ Parabolic Gains.</li>
+                            <li class="flex items-center"><span class="text-green-accent mr-3">•</span> **BYND Stock:** High short interest $\rightarrow$ **Next Squeeze Target?**</li>
+                            <li class="flex items-center"><span class="text-green-accent mr-3">•</span> **$BYND Memecoin:** Ticker, History, Community $\rightarrow$ **Huge Potential on SOL.**</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Memecoin Vision -->
+        <section class="text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-8 text-gray-900">The <span class="text-green-accent">Memecoin Mission</span></h2>
+            <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-10">
+                The connection is simple: the stock market introduced the world to volatility fueled by community. Solana provides the fast, low-cost platform to carry that spirit forward into decentralized finance. $BYND is a tribute, a rally cry, and a purely community-driven experiment in market dynamics.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                 <a href="https://x.com/i/communities/1980332723706425739" target="_blank" class="px-6 py-3 font-semibold rounded-xl bg-green-accent text-black hover:bg-green-300 transition duration-300 shadow-lg transform hover:scale-105">
+                    Join the X Community
+                </a>
+                <!-- Button text and border adapted for light mode -->
+                <button onclick="copyAddress();" class="px-6 py-3 font-semibold rounded-xl bg-white border border-green-accent text-green-accent hover:bg-gray-100 transition duration-300 shadow-lg transform hover:scale-105">
+                    Copy Contract Address
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Light Mode Adapted) -->
+    <footer class="bg-gray-200 py-8 border-t border-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-700 text-sm mb-4">&copy; 2025 $BYND Meme Coin. All rights reserved. Not affiliated with Beyond Meat Inc. This is a memecoin for entertainment purposes only.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://x.com/i/communities/1980332723706425739" target="_blank" class="text-gray-600 hover:text-green-accent transition duration-300">X</a>
+                <a href="#tokenomics" class="text-gray-600 hover:text-green-accent transition duration-300">Contract</a>
+                <!-- Footer Charts link is kept external to DEXscreener -->
+                <a href="https://dexscreener.com/solana/5BCTqesC7EKWdGzepDv4zHriWSV1mnPitLMLGtVBpump" target="_blank" class="text-gray-600 hover:text-green-accent transition duration-300">Charts</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Copy Functionality -->
+    <script>
+        // Global variables provided by the environment (not used for this static app but required for the standard template)
+        // const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        // const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        // const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        
+        // Function to copy the token address to the clipboard
+        function copyAddress() {
+            const address = document.getElementById('token-address').textContent;
+            const messageElement = document.getElementById('copy-message');
+
+            try {
+                // Use the recommended method for canvas environment
+                const tempInput = document.createElement('input');
+                tempInput.value = address;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                // Show success message
+                messageElement.textContent = 'Address Copied!';
+                messageElement.classList.add('opacity-100');
+                
+                // Hide message after 3 seconds
+                setTimeout(() => {
+                    messageElement.classList.remove('opacity-100');
+                }, 3000);
+
+            } catch (err) {
+                // Fallback display if copying fails
+                messageElement.textContent = 'Copy failed. Please select and copy manually.';
+                messageElement.classList.add('opacity-100', 'text-red-400');
+                setTimeout(() => {
+                    messageElement.classList.remove('opacity-100', 'text-red-400');
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
