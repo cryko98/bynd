@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$BYND: The Original Meme Stock Tribute</title>
-    <link rel="icon" type="image/png" href="https://freelogopng.com/images/all_img/1685331849beyond-meat-icon.png">
     <!-- Load Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Use Inter font family -->
@@ -66,7 +65,8 @@
                     <a href="#tokenomics" class="text-gray-700 hover:text-green-accent transition duration-300 hidden md:block">Token Info</a>
                     <!-- Nav bar Charts link updated to point to the internal Charts section -->
                     <a href="#charts" class="text-gray-700 hover:text-green-accent transition duration-300 hidden md:block">Charts</a>
-                    <a href="https://x.com/i/communities/19803323706425739" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-300 shadow-lg">Join the Movement</a>
+                    <!-- A Navbar link's URL was corrected to match the other links for consistency, improving UX across all devices. -->
+                    <a href="https://x.com/i/communities/1980332723706425739" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-300 shadow-lg">Join the Movement</a>
                 </div>
             </div>
         </div>
@@ -108,7 +108,8 @@
                         <p class="text-sm font-medium text-gray-700 mb-1">Contract Address:</p>
                         <div class="flex items-center w-full max-w-lg bg-gray-200 p-3 rounded-xl border border-gray-300">
                             <!-- Contract address has been UPDATED -->
-                            <span id="token-address" class="truncate text-gray-800 font-mono text-sm flex-grow select-all">5BCTqesC7EKWdGzepDv4zHriWSV1mnPitLMLGtVBpump</span>
+                            <!-- The 'truncate' class was removed and replaced with 'overflow-auto' to ensure the full address is visible on mobile. -->
+                            <span id="token-address" class="text-gray-800 font-mono text-sm flex-grow select-all overflow-auto">5BCTqesC7EKWdGzepDv4zHriWSV1mnPitLMLGtVBpump</span>
                             <button id="copy-button" class="ml-4 flex-shrink-0 p-2 rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-200 focus:outline-none" title="Copy Address">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
