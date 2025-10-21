@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$BYND: The Original Meme Stock Tribute</title>
+    <link rel="icon" type="image/png" href="https://w7.pngwing.com/pngs/219/572/png-transparent-beyond-meat-thumbnail-vegan-food-brands-thumbnail.png">
     <!-- Load Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Use Inter font family -->
@@ -65,8 +66,11 @@
                     <a href="#tokenomics" class="text-gray-700 hover:text-green-accent transition duration-300 hidden md:block">Token Info</a>
                     <!-- Nav bar Charts link updated to point to the internal Charts section -->
                     <a href="#charts" class="text-gray-700 hover:text-green-accent transition duration-300 hidden md:block">Charts</a>
-                    <!-- A Navbar link's URL was corrected to match the other links for consistency, improving UX across all devices. -->
-                    <a href="https://x.com/i/communities/1980332723706425739" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-300 shadow-lg">Join the Movement</a>
+                    <!-- FIX: Navbar CTA text shortened for mobile (sm:hidden) to prevent overflow on small screens -->
+                    <a href="https://x.com/i/communities/1980332723706425739" target="_blank" class="px-4 py-2 text-sm font-semibold rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-300 shadow-lg">
+                        <span class="sm:hidden">Join</span> <!-- Rövídített szöveg mobilra -->
+                        <span class="hidden sm:inline">Join the Movement</span> <!-- Teljes szöveg sm mérettől felfelé -->
+                    </a>
                 </div>
             </div>
         </div>
@@ -103,14 +107,13 @@
                         <p class="text-lg text-gray-600">Solana Meme</p>
                     </div>
 
-                    <!-- Token Address (Adapted for light mode) -->
-                    <div class="flex flex-col items-center md:items-start flex-grow">
+                    <!-- Token Address (Fix: Applied break-all and smaller text for mobile in previous step) -->
+                    <div class="flex flex-col items-center md:items-start w-full flex-grow">
                         <p class="text-sm font-medium text-gray-700 mb-1">Contract Address:</p>
-                        <div class="flex items-center w-full max-w-lg bg-gray-200 p-3 rounded-xl border border-gray-300">
-                            <!-- Contract address has been UPDATED -->
-                            <!-- The 'truncate' class was removed and replaced with 'overflow-auto' to ensure the full address is visible on mobile. -->
-                            <span id="token-address" class="text-gray-800 font-mono text-sm flex-grow select-all overflow-auto">5BCTqesC7EKWdGzepDv4zHriWSV1mnPitLMLGtVBpump</span>
-                            <button id="copy-button" class="ml-4 flex-shrink-0 p-2 rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-200 focus:outline-none" title="Copy Address">
+                        <!-- text-xs for mobile, text-sm for desktop, and break-all to force line breaks -->
+                        <div class="flex items-center w-full bg-gray-200 p-3 rounded-xl border border-gray-300">
+                            <span id="token-address" class="text-gray-800 font-mono text-xs sm:text-sm flex-grow select-all break-all pr-2">5BCTqesC7EKWdGzepDv4zHriWSV1mnPitLMLGtVBpump</span>
+                            <button id="copy-button" class="ml-2 flex-shrink-0 p-2 rounded-full bg-green-accent text-black hover:bg-green-300 transition duration-200 focus:outline-none" title="Copy Address">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
                                     <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3h-2a3 3 0 01-3-3z" />
@@ -141,6 +144,7 @@
             <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12 text-gray-900">Charts: Stock vs Meme</h2>
             <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-10">Compare the historical trading saga of the $BYND stock to the real-time action of the $BYND memecoin on Solana.</p>
             
+            <!-- Mobilra optimalizált rács: oszlopok egymás alatt jelennek meg mobil nézetben, egymás mellett asztali nézetben. -->
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- 1. $BYND (NASDAQ) Stock Chart (TradingView Embed) -->
                 <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-300">
@@ -208,7 +212,7 @@
                 </div>
                 <div class="hidden md:block">
                     <!-- IMAGE REPLACED WITH USER-PROVIDED URL -->
-                    <img src="https://azat.tv/en/wp-content/uploads/2025/10/Beyond-Meat.jpg" alt="Beyond Meat product and logo image" class="w-full rounded-xl shadow-xl border-4 border-green-accent/50">
+                    <img src="https://azat.tv/en/wp-content/uploads/2025/10/Beyond-Meat.jpg" alt="Beyond Meat logó és termék képe" class="w-full rounded-xl shadow-xl border-4 border-green-accent/50">
                 </div>
             </div>
         </section>
@@ -219,7 +223,7 @@
                 <div class="md:col-start-2">
                     <h2 class="text-3xl md:text-5xl font-extrabold mb-8 text-gray-900"><span class="text-green-accent">The GME Parallel:</span> The Squeeze Narrative</h2>
                     <p class="text-700 leading-relaxed mb-4">
-                        You can't discuss the power of retail traders without mentioning GameStop ($GME). Its stock orchestrated one of the largest short squeezes in market history, proving that a unified, dedicated community could drive the price to incredible, parabolic heights—a true market rebellion. The $GME phenomenon didn't stop at the stock exchange; it successfully spawned highly volatile and community-driven memecoins that captured the same electric, rebellious energy, achieving massive gains.
+                        You can't discuss meme stocks without mentioning GameStop ($GME). Its stock orchestrated one of the largest short squeezes in market history, proving that a unified, dedicated community could drive the price to incredible, parabolic heights—a true market rebellion. The $GME phenomenon didn't stop at the stock exchange; it successfully spawned highly volatile and community-driven memecoins that captured the same electric, rebellious energy, achieving massive gains.
                     </p>
                     <p class="text-gray-700 leading-relaxed mb-4">
                         Now, the $BYND stock finds itself in a strikingly similar position: a high short interest, low valuation, and intense retail scrutiny. This parallel is why the $BYND memecoin on Solana is positioned for explosive growth. It’s not just a tribute; it’s a strategic play. We are leveraging the familiar ticker and the deep history of short-seller battles to rally the next digital community.
